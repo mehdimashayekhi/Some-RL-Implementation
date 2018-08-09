@@ -10,7 +10,7 @@ class PolicyGradientAgent(object):
         # initialization
         self._s = sess
 
-        # build the graph
+        # building the graph
         self._input = tf.placeholder(tf.float32,
                 shape=[None, hparams['input_size']])
 
@@ -58,7 +58,7 @@ class PolicyGradientAgent(object):
 
 
 def policy_rollout(env, agent):
-    """Run one episode."""
+    """Runing one episode."""
 
     observation, reward, done = env.reset(), 0, False
     obs, acts, rews = [], [], []
@@ -130,7 +130,7 @@ def main():
                 b_rews.extend(advantages)
 
             # update policy
-            # normalize rewards; don't divide by 0
+            # normalize rewards
             b_rews = (b_rews - np.mean(b_rews)) / (np.std(b_rews) + 1e-10)
 
             agent.train_step(b_obs, b_acts, b_rews)
