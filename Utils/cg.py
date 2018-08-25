@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# conjugate gradient needed for model based RL algorithms, e.g, TRPO,PPO
 
 import numpy as np
 from scipy.sparse.linalg import cg
