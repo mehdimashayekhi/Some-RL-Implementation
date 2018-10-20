@@ -1,2 +1,4 @@
+# HER
 
-Implementation of the bit-flipping example in the paper Hindsight Experience Replay (https://arxiv.org/pdf/1707.01495.pdf)
+- Original paper: https://arxiv.org/pdf/1707.01495.pdf
+- `python3 dqn_her.py` runs the algorithm with default parameters.
