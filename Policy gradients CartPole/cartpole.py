@@ -8,7 +8,7 @@ class PolicyGradientAgent(object):
     def __init__(self, hparams, sess):
 
         # initialization
-        self._s = ses
+        self._s = sess
 
         # building the graph
         self._input = tf.placeholder(tf.float32,
