@@ -10,7 +10,6 @@ import argparse
 import pprint as pp
 
 from collections import deque
-
 from matplotlib import pyplot as plt
 from tqdm import tqdm
 
