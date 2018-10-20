@@ -13,7 +13,7 @@ from collections import deque
 from matplotlib import pyplot as plt
 from tqdm import tqdm
 
-# Bit flipping environment
+# Bit-flipping environment
 class Env():
     def __init__(self, size = 8, shaped_reward = False):
         self.size = size
