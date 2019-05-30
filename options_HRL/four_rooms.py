@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as 
+import matplotlib.pyplot as plt 
 import random
 
 class FourRoomsEnvironment():
