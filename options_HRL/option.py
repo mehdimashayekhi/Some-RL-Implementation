@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as 
 
 class Option():
     def __init__(self, option):
