@@ -3,7 +3,7 @@ import random
 from option import Option
 from four_rooms import FourRoomsEnvironment
 import matplotlib.pyplot as plt
-from tqdm import 
+from tqdm import tqdm
 
 learn_ground_truth_model = False # Consider MC values after 100K episodes as ground truth
 
