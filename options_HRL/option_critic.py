@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as 
 import sys
 import torch
 from torch.nn import Softmax, LogSoftmax, Sigmoid
