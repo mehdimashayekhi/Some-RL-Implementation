@@ -4,3 +4,4 @@
 - `python3 model_learning.py.py` runs the algorithm with default parameters. 
 
 - Note: This is work in progress
+- Blog; https://mehdimashayekhi.github.io/mehdi-mashayekhi-blog.github.io/
