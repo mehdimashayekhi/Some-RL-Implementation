@@ -14,6 +14,7 @@ class CQLAgent():
         self.device = device
         self.tau = 1e-3
         self.gamma = 0.99
+        self.enable_calql = False # to enable Calibrated CQL
         
         self.network = DDQN(state_size=self.state_size,
                             action_size=self.action_size,
@@ -43,9 +44,21 @@ class CQLAgent():
     def learn(self, experiences):
         self.optimizer.zero_grad()
         states, actions, rewards, next_states, dones = experiences
+
+        """ Cal-QL: bound Q-values with MC return-to-go """
+        if self.enable_calql:
+            return_to_go = [0] * len(rewards)
+            prev_return = 0
+            for i in range(len(rewards)):
+                return_to_go[-i-1] = rewards[-i-1] + self.gamma * prev_return * (1 - dones[-i-1])
+                prev_return = return_to_go[-i-1]
+
+
         with torch.no_grad():
             Q_targets_next = self.target_net(next_states).detach().max(1)[0].unsqueeze(1)
             Q_targets = rewards + (self.gamma * Q_targets_next * (1 - dones))
+            if self.enable_calql:
+                Q_targets = torch.maximum(Q_targets, Q_targets)
         Q_a_s = self.network(states)
         Q_expected = Q_a_s.gather(1, actions)
         
