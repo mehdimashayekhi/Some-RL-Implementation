@@ -58,7 +58,7 @@ class CQLAgent():
             Q_targets_next = self.target_net(next_states).detach().max(1)[0].unsqueeze(1)
             Q_targets = rewards + (self.gamma * Q_targets_next * (1 - dones))
             if self.enable_calql:
-                Q_targets = torch.maximum(Q_targets, Q_targets)
+                Q_targets = torch.maximum(Q_targets, return_to_go)
         Q_a_s = self.network(states)
         Q_expected = Q_a_s.gather(1, actions)
         
